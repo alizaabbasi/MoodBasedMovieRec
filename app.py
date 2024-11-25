@@ -4,6 +4,7 @@ from movie_recommendation import get_movie_recommendations
 
 st.title("🎬 Mood-Based Movie Recommendation System")
 
+
 # User input for mood description
 user_input = st.text_area("How are you feeling today?", placeholder="Describe your mood...")
 
