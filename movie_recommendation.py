@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = "f05cffbfd00d0731d7d719eb3277ca6e"  # Replace with your TMDb API key
+API_KEY = "f05cffbfd00d0731d7d719eb3277ca6e"  
 BASE_URL = "https://api.themoviedb.org/3"
 
 def get_movie_recommendations(sentiment, max_results=50):
@@ -16,7 +16,7 @@ def get_movie_recommendations(sentiment, max_results=50):
     movies = []
     page = 1
 
-    # Loop through multiple pages to get more results
+    # Looping through multiple pages to get more results
     while len(movies) < max_results:
         # TMDB API endpoint and parameters
         endpoint = f"{BASE_URL}/discover/movie"
