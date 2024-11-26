@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import streamlit as st
-from movie_recommendation import get_movie_recommendations
-
-st.title("🎬 Mood-Based Movie Recommendation System")
+from movie_list import display_movie_list  # Import from movie_list.py
 
 # Predefined mood options with emojis and confidence scores
 mood_options = {
@@ -11,6 +9,8 @@ mood_options = {
     "😠 Angry": ("Negative", 45),
     "😐 Neutral": ("Neutral", 60)
 }
+
+st.title("🎬 Mood-Based Movie Recommendation System")
 
 # Prompt for mood selection
 st.write("How are you feeling today?")
@@ -33,17 +33,7 @@ if st.button("Get Recommendations"):
         ax.set_title(f"Confidence in '{sentiment}' Sentiment")
         st.pyplot(fig)
 
-        # Get movie recommendations
-        movies = get_movie_recommendations(sentiment)
-        if movies:
-            st.subheader("Recommended Movies:")
-            for movie in movies:
-                st.markdown(f"### {movie['title']}")
-                st.write(f"**Release Date:** {movie['release_date']}")
-                st.write(f"**Rating:** {movie['rating']} ⭐")
-                st.write(f"**Overview:** {movie['overview']}")
-                st.write("---")  # Separator between movies
-        else:
-            st.write("No recommendations found!")
+        # Call the function from movie_list.py to display the movie list
+        display_movie_list(sentiment)
     else:
         st.error("Please select a mood.")
